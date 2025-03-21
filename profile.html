@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - Plataforma de Ranking para Escaladores</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">ClimbRank</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Rankings</a></li>
+                <li><a href="#">Comunidad</a></li>
+                <li><a href="#" class="active">Mi Perfil</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button id="logoutBtn" class="btn-logout">Cerrar Sesión</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="profile-container">
+        <div class="profile-sidebar">
+            <div class="profile-avatar">
+                <img id="userAvatar" src="https://via.placeholder.com/150" alt="Avatar del usuario">
+                <button id="changeAvatarBtn" class="btn-change-avatar">Cambiar foto</button>
+            </div>
+            <div class="profile-nav">
+                <ul>
+                    <li class="active" data-section="personal-info">Información Personal</li>
+                    <li data-section="climbing-stats">Estadísticas de Escalada</li>
+                    <li data-section="achievements">Logros</li>
+                    <li data-section="settings">Configuración</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <!-- Sección de Información Personal -->
+            <section id="personal-info" class="profile-section active">
+                <h2>Información Personal</h2>
+                <div class="profile-form">
+                    <div class="form-group">
+                        <label for="fullName">Nombre Completo</label>
+                        <input type="text" id="fullName" name="fullName">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Nombre de Usuario</label>
+                        <input type="text" id="username" name="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Ubicación</label>
+                        <input type="text" id="location" name="location">
+                    </div>
+                    <div class="form-group">
+                        <label for="bio">Biografía</label>
+                        <textarea id="bio" name="bio" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="website">Sitio Web</label>
+                        <input type="url" id="website" name="website">
+                    </div>
+                    <div class="form-group">
+                        <label for="socialInstagram">Instagram</label>
+                        <input type="text" id="socialInstagram" name="socialInstagram">
+                    </div>
+                    <button id="savePersonalInfoBtn" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+            </section>
+
+            <!-- Sección de Estadísticas de Escalada -->
+            <section id="climbing-stats" class="profile-section">
+                <h2>Estadísticas de Escalada</h2>
+                <div class="stats-container">
+                    <div class="stats-summary">
+                        <div class="stat-card">
+                            <span class="stat-value" id="totalAscents">0</span>
+                            <span class="stat-label">Ascensos Totales</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-value" id="maxGrade">-</span>
+                            <span class="stat-label">Grado Máximo</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-value" id="totalPoints">0</span>
+                            <span class="stat-label">Puntos Totales</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-value" id="globalRanking">-</span>
+                            <span class="stat-label">Ranking Global</span>
+                        </div>
+                    </div>
+                    
+                    <div class="recent-ascents">
+                        <h3>Ascensos Recientes</h3>
+                        <div id="recentAscentsList" class="ascents-list">
+                            <p class="empty-message">No hay ascensos registrados aún.</p>
+                        </div>
+                        <button id="addAscentBtn" class="btn btn-primary">Registrar Nuevo Ascenso</button>
+                    </div>
+                    
+                    <div class="grade-distribution">
+                        <h3>Distribución por Grados</h3>
+                        <div id="gradeChart" class="chart-container">
+                            <!-- Aquí se mostrará el gráfico de distribución por grados -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de Logros -->
+            <section id="achievements" class="profile-section">
+                <h2>Logros</h2>
+                <div class="achievements-container">
+                    <div id="achievementsList" class="achievements-list">
+                        <p class="empty-message">No hay logros desbloqueados aún.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de Configuración -->
+            <section id="settings" class="profile-section">
+                <h2>Configuración</h2>
+                <div class="settings-form">
+                    <h3>Cambiar Contraseña</h3>
+                    <div class="form-group">
+                        <label for="currentPassword">Contraseña Actual</label>
+                        <input type="password" id="currentPassword" name="currentPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">Nueva Contraseña</label>
+                        <input type="password" id="newPassword" name="newPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirmar Nueva Contraseña</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword">
+                    </div>
+                    <button id="changePasswordBtn" class="btn btn-primary">Actualizar Contraseña</button>
+                    
+                    <h3>Preferencias de Notificación</h3>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="notifyComments" name="notifyComments" checked>
+                        <label for="notifyComments">Notificarme sobre comentarios en mis ascensos</label>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="notifyAchievements" name="notifyAchievements" checked>
+                        <label for="notifyAchievements">Notificarme sobre nuevos logros</label>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="notifyEvents" name="notifyEvents" checked>
+                        <label for="notifyEvents">Notificarme sobre eventos cercanos</label>
+                    </div>
+                    <button id="saveSettingsBtn" class="btn btn-primary">Guardar Preferencias</button>
+                    
+                    <h3>Privacidad</h3>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="profilePublic" name="profilePublic" checked>
+                        <label for="profilePublic">Perfil público (visible para todos)</label>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="showEmail" name="showEmail">
+                        <label for="showEmail">Mostrar mi correo electrónico</label>
+                    </div>
+                    <button id="savePrivacyBtn" class="btn btn-primary">Guardar Configuración de Privacidad</button>
+                    
+                    <div class="danger-zone">
+                        <h3>Zona de Peligro</h3>
+                        <button id="deleteAccountBtn" class="btn btn-danger">Eliminar mi cuenta</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="addAscentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Registrar Nuevo Ascenso</h2>
+            <form id="newAscentForm">
+                <div class="form-group">
+                    <label for="routeName">Nombre de la Ruta</label>
+                    <input type="text" id="routeName" name="routeName" required>
+                </div>
+                <div class="form-group">
+                    <label for="routeGrade">Grado</label>
+                    <select id="routeGrade" name="routeGrade" required>
+                        <option value="">Seleccionar grado</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5a">5a</option>
+                        <option value="5b">5b</option>
+                        <option value="5c">5c</option>
+                        <option value="6a">6a</option>
+                        <option value="6a+">6a+</option>
+                        <option value="6b">6b</option>
+                        <option value="6b+">6b+</option>
+                        <option value="6c">6c</option>
+                        <option value="6c+">6c+</option>
+                        <option value="7a">7a</option>
+                        <option value="7a+">7a+</option>
+                        <option value="7b">7b</option>
+                        <option value="7b+">7b+</option>
+                        <option value="7c">7c</option>
+                        <option value="7c+">7c+</option>
+                        <option value="8a">8a</option>
+                        <option value="8a+">8a+</option>
+                        <option value="8b">8b</option>
+                        <option value="8b+">8b+</option>
+                        <option value="8c">8c</option>
+                        <option value="8c+">8c+</option>
+                        <option value="9a">9a</option>
+                        <option value="9a+">9a+</option>
+                        <option value="9b">9b</option>
+                        <option value="9b+">9b+</option>
+                        <option value="9c">9c</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="routeLocation">Ubicación</label>
+                    <input type="text" id="routeLocation" name="routeLocation" required>
+                </div>
+                <div class="form-group">
+                    <label for="ascentDate">Fecha</label>
+                    <input type="date" id="ascentDate" name="ascentDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="ascentType">Tipo de Ascenso</label>
+                    <select id="ascentType" name="ascentType" required>
+                        <option value="">Seleccionar tipo</option>
+                        <option value="onsight">Onsight</option>
+                        <option value="flash">Flash</option>
+                        <option value="redpoint">Redpoint</option>
+                        <option value="pinkpoint">Pinkpoint</option>
+                        <option value="toprope">Top Rope</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ascentNotes">Notas</label>
+                    <textarea id="ascentNotes" name="ascentNotes" rows="3"></textarea>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="publicAscent" name="publicAscent" checked>
+                    <label for="publicAscent">Hacer público este ascenso</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar Ascenso</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span>ClimbRank</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">Acerca de</a>
+                <a href="#">Términos de Servicio</a>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Contacto</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ClimbRank. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

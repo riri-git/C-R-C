@@ -1,0 +1,283 @@
+/* 
+ * auth.css
+ * Estilos específicos para las páginas de autenticación
+ * Plataforma de Ranking para Escaladores - v0.3
+ */
+
+/* Contenedor principal para páginas de autenticación */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 150px); /* Ajustar según altura de header y footer */
+    padding: 40px 20px;
+    background-color: #f7f9fc;
+}
+
+/* Tarjeta de autenticación */
+.auth-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 480px;
+    padding: 30px;
+}
+
+.auth-card h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2a2a2a;
+    font-size: 1.8rem;
+}
+
+/* Formulario */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #444;
+    font-size: 0.9rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.form-hint {
+    color: #888;
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+
+/* Checkbox para términos y condiciones */
+.form-group.checkbox {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-group.checkbox input {
+    width: 18px;
+    height: 18px;
+}
+
+.form-group.checkbox label {
+    font-size: 0.85rem;
+    font-weight: normal;
+}
+
+.form-group.checkbox a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.form-group.checkbox a:hover {
+    text-decoration: underline;
+}
+
+/* Acciones del formulario */
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.forgot-password {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.85rem;
+    align-self: flex-end;
+}
+
+.forgot-password:hover {
+    color: #4CAF50;
+    text-decoration: underline;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #3e8e41;
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+}
+
+/* Alternativa de autenticación */
+.auth-alternative {
+    margin-top: 30px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.auth-alternative p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.auth-alternative a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-alternative a:hover {
+    text-decoration: underline;
+}
+
+/* Notificación */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 4px;
+    color: white;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 1000;
+    max-width: 350px;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.notification.success {
+    background-color: #4CAF50;
+}
+
+.notification.error {
+    background-color: #f44336;
+}
+
+.notification.info {
+    background-color: #2196F3;
+}
+
+/* Responsive para móviles */
+@media (max-width: 576px) {
+    .auth-card {
+        padding: 20px;
+    }
+    
+    .auth-card h1 {
+        font-size: 1.5rem;
+    }
+    
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="password"] {
+        padding: 10px 14px;
+    }
+    
+    .btn-primary {
+        padding: 10px 20px;
+    }
+}
+/* Estilos adicionales para la página de restablecimiento de contraseña */
+
+/* Mensajes de estado */
+.message {
+    padding: 10px;
+    border-radius: 4px;
+    margin: 15px 0;
+    display: none;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.message.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/* Ajustes específicos para formularios de restablecimiento */
+#reset-request-form,
+#reset-password-form {
+    transition: opacity 0.3s ease;
+}
+
+#reset-password-form .form-group:last-of-type {
+    margin-bottom: 20px;
+}
+
+/* Indicador de seguridad de contraseña (opcional para futura implementación) */
+.password-strength {
+    height: 5px;
+    margin-top: 5px;
+    border-radius: 2px;
+    background-color: #eee;
+}
+
+.password-strength-meter {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.password-strength-meter.weak {
+    width: 33%;
+    background-color: #dc3545;
+}
+
+.password-strength-meter.medium {
+    width: 66%;
+    background-color: #ffc107;
+}
+
+.password-strength-meter.strong {
+    width: 100%;
+    background-color: #28a745;
+}

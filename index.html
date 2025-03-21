@@ -1,0 +1,410 @@
+<!DO html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClimbRank - Plataforma para Escaladores</title>
+    
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-mountain me-2"></i>ClimbRank.Cuba
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ranking.html">Ranking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#zonas">Zonas de Escalada</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#eventos">Eventos</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="login.html" class="btn btn-outline-light me-2">Iniciar Sesión</a>
+                    <a href="register.html" class="btn btn-success">Registrarse</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="overlay"></div>
+        <div class="container hero-content">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold text-white">El ranking de Cuba</h1>
+                    <h2 class="display-4 fw-bold text-white">que puedes usar desde cualquier lugar del mundo</h2>
+                    <p class="lead text-white mb-4">Registra tus encadenes, comparte tus logros y compite en el ranking de los mejores escaladores</p>
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <a href="register.html" class="btn btn-success btn-lg px-4 gap-3">Unirse ahora</a>
+                        <a href="ranking.html" class="btn btn-outline-light btn-lg px-4">Ver Ranking</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Ranking -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="fw-bold">Top 10 Escaladores</h2>
+                    <p class="text-muted">Los mejores de nuestra comunidad basado en sus encadenes</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover ranking-table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Escalador</th>
+                                            <th>Puntos</th>
+                                            <th>Mejor Encadene</th>
+                                            <th>Total Encadenes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="rankingList">
+                                        <!-- Datos de ejemplo - Se reemplazarán con JavaScript -->
+                                        <tr>
+                                            <td class="rank-number">1</td>
+                                            <td>
+                                                <a href="profile.html?user=analopez" class="user-link">
+                                                    <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="Ana López">
+                                                    Ana López
+                                                </a>
+                                            </td>
+                                            <td><strong>1250</strong></td>
+                                            <td>8c (A vista)</td>
+                                            <td>342</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="rank-number">2</td>
+                                            <td>
+                                                <a href="profile.html?user=carlosruiz" class="user-link">
+                                                    <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="Carlos Ruiz">
+                                                    Carlos Ruiz
+                                                </a>
+                                            </td>
+                                            <td><strong>1180</strong></td>
+                                            <td>8b+ (Flash)</td>
+                                            <td>287</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="rank-number">3</td>
+                                            <td>
+                                                <a href="profile.html?user=lauraperez" class="user-link">
+                                                    <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="Laura Pérez">
+                                                    Laura Pérez
+                                                </a>
+                                            </td>
+                                            <td><strong>1120</strong></td>
+                                            <td>8b (A vista)</td>
+                                            <td>305</td>
+                                        </tr>
+                                        <!-- Agregar más filas con datos de ejemplo -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="text-center mt-3">
+                                <a href="ranking.html" class="btn btn-primary">Ver Ranking Completo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería Destacada -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="fw-bold">Fotos Destacadas</h2>
+                    <p class="text-muted">Las mejores capturas de nuestra comunidad</p>
+                </div>
+            </div>
+            <div class="row" id="featuredGallery">
+                <!-- Fotos destacadas - Se llenarán con JavaScript -->
+                <div class="col-md-4 mb-4">
+                    <div class="card gallery-card">
+                        <img src="https://via.placeholder.com/600x400" class="card-img-top" alt="Foto destacada">
+                        <div class="card-body">
+                            <h5 class="card-title">El Picu Urriellu - 8a+</h5>
+                            <p class="card-text">
+                                <small class="text-muted">
+                                    Por <a href="profile.html?user=mariagonzalez">María González</a>
+                                </small>
+                                <span class="float-end"><i class="fas fa-heart text-danger"></i> 256</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card gallery-card">
+                        <img src="https://via.placeholder.com/600x400" class="card-img-top" alt="Foto destacada">
+                        <div class="card-body">
+                            <h5 class="card-title">Rodellar - 7c</h5>
+                            <p class="card-text">
+                                <small class="text-muted">
+                                    Por <a href="profile.html?user=davidgarcia">David García</a>
+                                </small>
+                                <span class="float-end"><i class="fas fa-heart text-danger"></i> 214</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card gallery-card">
+                        <img src="https://via.placeholder.com/600x400" class="card-img-top" alt="Foto destacada">
+                        <div class="card-body">
+                            <h5 class="card-title">Patones - 7b+</h5>
+                            <p class="card-text">
+                                <small class="text-muted">
+                                    Por <a href="profile.html?user=pabloferrer">Pablo Ferrer</a>
+                                </small>
+                                <span class="float-end"><i class="fas fa-heart text-danger"></i> 189</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <a href="gallery.html" class="btn btn-primary">Ver Más Fotos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eventos y Noticias -->
+    <section class="py-5 bg-light" id="eventos">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="fw-bold">Eventos y Noticias</h2>
+                    <p class="text-muted">Mantente al día con la comunidad de escalada</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">Competición</span>
+                            <h5 class="card-title">Campeonato Nacional de Escalada</h5>
+                            <p class="card-text">La próxima edición del campeonato tendrá lugar en Madrid el 25 de junio.</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <small class="text-muted">Publicado hace 2 días</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Entrenamiento</span>
+                            <h5 class="card-title">Taller de Técnicas Avanzadas</h5>
+                            <p class="card-text">Aprende nuevas técnicas de agarre y movimientos para mejorar tu rendimiento.</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <small class="text-muted">Publicado hace 5 días</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <span class="badge bg-info mb-2">Noticia</span>
+                            <h5 class="card-title">Nueva Zona de Escalada en Alicante</h5>
+                            <p class="card-text">Se ha habilitado una nueva zona con más de 50 vías de diferentes dificultades.</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <small class="text-muted">Publicado hace 1 semana</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zonas de Escalada -->
+    <section class="py-5" id="zonas">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="fw-bold">Zonas de Escalada</h2>
+                    <p class="text-muted">Descubre los mejores lugares para practicar en Cuba</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card climbing-zone-card">
+                        <img src="https://via.placeholder.com/600x400" class="card-img-top" alt="Zona de escalada">
+                        <div class="card-body">
+                            <h5 class="card-title">vinales</h5>
+                            <p class="card-text">el destinos más populares de Cuba con más de 1500 vías.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="difficulty-range">Dificultad: 4a - 8c+ ?</span>
+                                <span class="route-count">650 rutas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card climbing-zone-card">
+                        <img src="https://via.placeholder.com/600x400" class="card-img-top" alt="Zona de escalada">
+                        <div class="card-body">
+                            <h5 class="card-title">jibacoa</h5>
+                            <p class="card-text">un sertor pequeno a 5mn de la playa.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="difficulty-range">Dificultad: 5a - 7b</span>
+                                <span class="route-count">35 rutas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card climbing-zone-card">
+                        <img src="https://via.placeholder.com/600x400" class="card-img-top" alt="Zona de escalada">
+                        <div class="card-body">
+                            <h5 class="card-title">Holguin</h5>
+                            <p class="card-text"> un lugar con muchos potencial por esplotar.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="difficulty-range">Dificultad: 5 - 8a</span>
+                                <span class="route-count">120 rutas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card climbing-zone-card">
+                        <img src="https://via.placeholder.com/600x400" class="card-img-top" alt="Zona de escalada">
+                        <div class="card-body">
+                            <h5 class="card-title">Bouder Habana </h5>
+                            <p class="card-text"> la casa de los pata sucias.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="difficulty-range">Dificultad: 5 - 8a</span>
+                                <span class="route-count">15 rutas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card climbing-zone-card">
+                        <img src="https://via.placeholder.com/600x400" class="card-img-top" alt="Zona de escalada">
+                        <div class="card-body">
+                            <h5 class="card-title">santespiritu</h5>
+                            <p class="card-text"> el mejor spicoblock probado asta el momento en cuba .</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="difficulty-range">Dificultad: 5 - 8a</span>
+                                <span class="route-count">120 rutas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card climbing-zone-card">
+                        <img src="https://via.placeholder.com/600x400" class="card-img-top" alt="Zona de escalada">
+                        <div class="card-body">
+                            <h5 class="card-title">El Morro</h5>
+                            <p class="card-text"> ten la oportunidad de escalar las paredes de una fotalesa de pasado.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="difficulty-range">Dificultad: 5 - 8a</span>
+                                <span class="route-count">12 rutas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5><i class="fas fa-mountain me-2"></i>ClimbRank.Cuba</h5>
+                    <p>La plataforma para escaladores que desean registrar sus logros y competir en un ranking global.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5>Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Inicio</a></li>
+                        <li><a href="ranking.html" class="text-white">Ranking</a></li>
+                        <li><a href="gallery.html" class="text-white">Galería</a></li>
+                        <li><a href="#zonas" class="text-white">Zonas</a></li>
+                        <li><a href="#eventos" class="text-white">Eventos</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5>Recursos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Guía de uso</a></li>
+                        <li><a href="#" class="text-white">Política de privacidad</a></li>
+                        <li><a href="#" class="text-white">Términos y condiciones</a></li>
+                        <li><a href="#" class="text-white">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Suscríbete</h5>
+                    <p>Recibe las últimas noticias y eventos</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Tu email" aria-label="Email" aria-describedby="button-addon2">
+                            <button class="btn btn-success" type="button" id="button-addon2">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2025 ClimbRank.cuba. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JavaScript personalizado -->
+    <script src="js/main.js"></script>
+</body>
+</html>CTYPE
