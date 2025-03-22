@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Ascenso | Plataforma de Ranking para Escaladores</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/add-ascent.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>ClimbRank</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="dashboard.html">Rankings</a></li>
+                <li><a href="add-ascent.html" class="active">Registrar Ascenso</a></li>
+                <li><a href="profile.html">Mi Perfil</a></li>
+                <li><a href="#" id="logout-btn">Cerrar Sesión</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="add-ascent-section">
+            <h2>Registrar Nuevo Ascenso</h2>
+            <div class="form-container">
+                <form id="ascent-form">
+                    <div class="form-group">
+                        <label for="route-name">Nombre de la Ruta/Bloque</label>
+                        <input type="text" id="route-name" name="route-name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="route-type">Tipo</label>
+                        <select id="route-type" name="route-type" required>
+                            <option value="">Selecciona un tipo</option>
+                            <option value="boulder">Boulder</option>
+                            <option value="sport">Deportiva</option>
+                            <option value="trad">Tradicional</option>
+                            <option value="multi-pitch">Multi-largo</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="grade">Grado</label>
+                            <select id="grade" name="grade" required>
+                                <option value="">Selecciona un grado</option>
+                                <!-- Se poblará dinámicamente según el tipo seleccionado -->
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="style">Estilo</label>
+                            <select id="style" name="style" required>
+                                <option value="">Selecciona un estilo</option>
+                                <option value="onsight">Onsight</option>
+                                <option value="flash">Flash</option>
+                                <option value="redpoint">Redpoint</option>
+                                <option value="repeat">Repetición</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Ubicación/Sector</label>
+                        <input type="text" id="location" name="location" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Fecha de Ascenso</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Descripción/Comentarios</label>
+                        <textarea id="description" name="description" rows="4"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image-upload">Foto (opcional)</label>
+                        <input type="file" id="image-upload" name="image-upload" accept="image/*">
+                        <div id="image-preview" class="image-preview"></div>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="public-ascent" name="public-ascent" checked>
+                        <label for="public-ascent">Compartir públicamente</label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="submit-ascent" class="btn btn-primary">Registrar Ascenso</button>
+                        <button type="reset" class="btn btn-secondary">Limpiar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="ascent-preview">
+            <h3>Resumen</h3>
+            <div class="preview-container">
+                <div id="ascent-summary" class="summary-card">
+                    <p>Completa el formulario para ver un resumen de tu ascenso.</p>
+                </div>
+                <div id="points-calculation" class="points-card">
+                    <h4>Puntuación Estimada</h4>
+                    <p id="points-value">0 puntos</p>
+                    <p id="points-explanation" class="explanation">Rellena el formulario para calcular los puntos.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ClimbRank - Plataforma de Ranking para Escaladores</p>
+    </footer>
+
+    <div id="loading-spinner" class="spinner-container">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/add-ascent.js"></script>
+</body>
+</html>
