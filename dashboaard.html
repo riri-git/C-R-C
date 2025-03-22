@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Plataforma de Ranking para Escaladores</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>ClimbRank</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="dashboard.html" class="active">Rankings</a></li>
+                <li><a href="add-ascent.html">Registrar Ascenso</a></li>
+                <li><a href="#" id="nav-profile">Mi Perfil</a></li>
+                <li><a href="#" id="nav-logout">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <section class="filters-section">
+            <h2>Filtros</h2>
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label for="category-filter">Categoría</label>
+                    <select id="category-filter">
+                        <option value="all">Todas</option>
+                        <option value="boulder">Boulder</option>
+                        <option value="sport">Deportiva</option>
+                        <option value="trad">Tradicional</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="difficulty-filter">Dificultad</label>
+                    <select id="difficulty-filter">
+                        <option value="all">Todas</option>
+                        <option value="beginner">Principiante (V0-V2 / 5.8-5.10)</option>
+                        <option value="intermediate">Intermedio (V3-V5 / 5.11-5.12)</option>
+                        <option value="advanced">Avanzado (V6-V8 / 5.13)</option>
+                        <option value="expert">Experto (V9+ / 5.14+)</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="location-filter">Ubicación</label>
+                    <select id="location-filter">
+                        <option value="all">Todas</option>
+                        <option value="indoor">Indoor</option>
+                        <option value="outdoor">Outdoor</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="period-filter">Período</label>
+                    <select id="period-filter">
+                        <option value="all-time">Todos los tiempos</option>
+                        <option value="year">Último año</option>
+                        <option value="month">Último mes</option>
+                        <option value="week">Última semana</option>
+                    </select>
+                </div>
+                <button id="apply-filters" class="btn-primary">Aplicar Filtros</button>
+                <button id="reset-filters" class="btn-secondary">Restablecer</button>
+            </div>
+        </section>
+
+        <section class="rankings-section">
+            <div class="rankings-header">
+                <h2>Rankings Globales</h2>
+                <div class="view-toggle">
+                    <button id="view-global" class="btn-toggle active">Global</button>
+                    <button id="view-category" class="btn-toggle">Por Categoría</button>
+                </div>
+            </div>
+            
+            <div id="loading-spinner" class="loading-container">
+                <div class="spinner"></div>
+                <p>Cargando rankings...</p>
+            </div>
+            
+            <div id="rankings-container">
+                <!-- Esta sección se llena dinámicamente con JavaScript -->
+                <div id="global-rankings" class="rankings-table">
+                    <!-- Tabla de rankings globales -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Posición</th>
+                                <th>Usuario</th>
+                                <th>Puntos</th>
+                                <th>Mejor Ascenso</th>
+                                <th>Total Ascensos</th>
+                            </tr>
+                        </thead>
+                        <tbody id="global-rankings-body">
+                            <!-- Filas generadas con JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div id="category-rankings" class="rankings-table hidden">
+                    <!-- Tabs para diferentes categorías -->
+                    <div class="category-tabs">
+                        <button class="category-tab active" data-category="boulder">Boulder</button>
+                        <button class="category-tab" data-category="sport">Deportiva</button>
+                        <button class="category-tab" data-category="trad">Tradicional</button>
+                    </div>
+                    
+                    <!-- Tablas por categoría (inicialmente ocultas) -->
+                    <div id="boulder-rankings" class="category-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Posición</th>
+                                    <th>Usuario</th>
+                                    <th>Puntos</th>
+                                    <th>Mejor Bloque</th>
+                                    <th>Total Bloques</th>
+                                </tr>
+                            </thead>
+                            <tbody id="boulder-rankings-body">
+                                <!-- Filas generadas con JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div id="sport-rankings" class="category-table hidden">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Posición</th>
+                                    <th>Usuario</th>
+                                    <th>Puntos</th>
+                                    <th>Mejor Vía</th>
+                                    <th>Total Vías</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sport-rankings-body">
+                                <!-- Filas generadas con JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div id="trad-rankings" class="category-table hidden">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Posición</th>
+                                    <th>Usuario</th>
+                                    <th>Puntos</th>
+                                    <th>Mejor Vía</th>
+                                    <th>Total Vías</th>
+                                </tr>
+                            </thead>
+                            <tbody id="trad-rankings-body">
+                                <!-- Filas generadas con JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <button id="prev-page" class="btn-secondary" disabled>Anterior</button>
+                <span id="page-info">Página 1 de 1</span>
+                <button id="next-page" class="btn-secondary" disabled>Siguiente</button>
+            </div>
+        </section>
+        
+        <section class="stats-section">
+            <h2>Estadísticas</h2>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Usuarios</h3>
+                        <p id="total-users">--</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Ascensos</h3>
+                        <p id="total-ascents">--</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Ascenso más Difícil</h3>
+                        <p id="hardest-ascent">--</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Ascensos esta Semana</h3>
+                        <p id="weekly-ascents">--</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ClimbRank</h3>
+                <p>La plataforma definitiva para escaladores que desean seguir su progreso y competir con la comunidad.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="dashboard.html">Rankings</a></li>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ClimbRank. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
